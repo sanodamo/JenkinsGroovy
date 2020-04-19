@@ -1,9 +1,11 @@
 node {
     stage('SCM') {
 	echo 'Gathering code from version control'
+	git branch:'${branch}', url: 'https://github.com/sanodamo/JenkinsGroovy.git'
     }
     stage('Build') {
         echo 'Building....'
+	bat 'dotnet --version'
     }
     stage('Test') {
         echo 'Testing....'
